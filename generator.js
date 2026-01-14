@@ -210,17 +210,19 @@ function renderCards() {
         cardEl.dataset.index = index;
 
         cardEl.innerHTML = `
-            <div class="card-header ${card.level}">
-                <div class="card-level">${card.levelName}</div>
-                <div class="card-title">${card.name}</div>
-            </div>
-            <div class="card-body">
+            <div class="card-header-bar ${card.level}">${card.levelName}</div>
+            <div class="card-content">
+                <div class="card-title-row">
+                    <span class="card-icon">${card.icon || ''}</span>
+                    <span class="card-name">${card.name}</span>
+                </div>
+                <div class="card-aka ${card.level}">AKA ${card.aka || ''}</div>
                 <p class="card-definition">${card.definition}</p>
-                <div class="card-prompts">
-                    <h4>Example Prompts</h4>
-                    <ul>
-                        ${card.customPrompts.map(p => `<li>${escapeHtml(p)}</li>`).join('')}
-                    </ul>
+                <div class="card-prompts-section">
+                    <div class="prompts-header">Prompt Examples</div>
+                    ${card.customPrompts.map(p =>
+                        `<div class="prompt-example ${card.level}">"${escapeHtml(p)}"</div>`
+                    ).join('')}
                 </div>
             </div>
             <div class="card-edit-hint">Click to edit prompts</div>
@@ -300,7 +302,7 @@ function printCards() {
     const printLayout = document.getElementById('print-layout');
     const domain = document.getElementById('domain-input').value.trim();
 
-    // Generate print-ready cards
+    // Generate print-ready cards matching the Figma design
     let html = `
         <div class="print-page">
             <h1 style="text-align: center; margin-bottom: 20px;">LLM Capability Cards - ${escapeHtml(domain)}</h1>
@@ -321,15 +323,21 @@ function printCards() {
         html += `
             <div class="print-card">
                 <div class="print-card-header ${card.level}">
-                    <div class="print-card-level">${card.levelName}</div>
-                    <div class="print-card-title">${card.name}</div>
+                    ${card.levelName}
                 </div>
                 <div class="print-card-body">
+                    <div class="print-card-title-row">
+                        <span class="print-card-icon">${card.icon || ''}</span>
+                        <span class="print-card-title">${card.name}</span>
+                    </div>
+                    <div class="print-card-aka ${card.level}">AKA ${card.aka || ''}</div>
                     <p class="print-card-definition">${card.definition}</p>
-                    <div class="print-prompts-label">Example Prompts</div>
-                    <ul class="print-card-prompts">
-                        ${card.customPrompts.map(p => `<li>${escapeHtml(p)}</li>`).join('')}
-                    </ul>
+                    <div class="print-prompts-label">Prompt Examples</div>
+                    <div class="print-card-prompts">
+                        ${card.customPrompts.map(p =>
+                            `<div class="print-prompt ${card.level}">"${escapeHtml(p)}"</div>`
+                        ).join('')}
+                    </div>
                 </div>
             </div>
         `;

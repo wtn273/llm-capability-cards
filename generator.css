@@ -138,13 +138,14 @@
 
 /* Editable Cards Grid */
 .editable-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
+    justify-content: flex-start;
 }
 
-/* Editable Card */
+/* Editable Card - Matches main site card design */
 .editable-card {
     background: white;
     border-radius: 12px;
@@ -152,6 +153,8 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 280px;
+    border: 1px solid #e0e0e0;
 }
 
 .editable-card:hover {
@@ -163,66 +166,103 @@
     display: none;
 }
 
-.card-header {
-    padding: var(--spacing-md);
+/* Card Header Bar - same as main site */
+.editable-card .card-header-bar {
+    padding: 6px var(--spacing-md);
     color: white;
-}
-
-.card-header.remember { background: var(--color-remember); }
-.card-header.understand { background: var(--color-understand); }
-.card-header.apply { background: var(--color-apply); }
-.card-header.analyze { background: var(--color-analyze); }
-.card-header.evaluate { background: var(--color-evaluate); }
-.card-header.create { background: var(--color-create); }
-
-.card-level {
+    font-weight: 600;
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    opacity: 0.9;
+    text-align: center;
 }
 
-.card-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-top: 4px;
-}
+.editable-card .card-header-bar.remember { background: var(--color-remember); }
+.editable-card .card-header-bar.understand { background: var(--color-understand); }
+.editable-card .card-header-bar.apply { background: var(--color-apply); }
+.editable-card .card-header-bar.analyze { background: var(--color-analyze); }
+.editable-card .card-header-bar.evaluate { background: var(--color-evaluate); }
+.editable-card .card-header-bar.create { background: var(--color-create); }
 
-.card-body {
+/* Card Content - same as main site */
+.editable-card .card-content {
     padding: var(--spacing-md);
 }
 
-.card-definition {
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-md);
-    line-height: 1.5;
+.editable-card .card-title-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: 4px;
 }
 
-.card-prompts h4 {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-sm);
+.editable-card .card-icon {
+    font-size: 1.5rem;
 }
 
-.card-prompts ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.card-prompts li {
-    font-size: 0.9rem;
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid #f0f0f0;
+.editable-card .card-name {
+    font-weight: 700;
+    font-size: 1.4rem;
     color: var(--color-text);
 }
 
-.card-prompts li:last-child {
-    border-bottom: none;
+.editable-card .card-aka {
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-bottom: var(--spacing-sm);
 }
+
+.editable-card .card-aka.remember { color: var(--color-remember); }
+.editable-card .card-aka.understand { color: var(--color-understand); }
+.editable-card .card-aka.apply { color: var(--color-apply); }
+.editable-card .card-aka.analyze { color: var(--color-analyze); }
+.editable-card .card-aka.evaluate { color: var(--color-evaluate); }
+.editable-card .card-aka.create { color: var(--color-create); }
+
+.editable-card .card-definition {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Prompt Examples Section - same as main site */
+.editable-card .card-prompts-section {
+    border-top: 1px solid #e0e0e0;
+    padding-top: var(--spacing-md);
+}
+
+.editable-card .prompts-header {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.editable-card .prompt-example {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.4;
+    text-align: center;
+}
+
+.editable-card .prompt-example:last-child {
+    margin-bottom: 0;
+}
+
+.editable-card .prompt-example.remember { background: rgba(231, 76, 60, 0.1); }
+.editable-card .prompt-example.understand { background: rgba(243, 156, 18, 0.1); }
+.editable-card .prompt-example.apply { background: rgba(39, 174, 96, 0.1); }
+.editable-card .prompt-example.analyze { background: rgba(52, 152, 219, 0.1); }
+.editable-card .prompt-example.evaluate { background: rgba(155, 89, 182, 0.1); }
+.editable-card .prompt-example.create { background: rgba(233, 30, 99, 0.1); }
 
 .card-edit-hint {
     font-size: 0.8rem;
@@ -293,8 +333,13 @@
     }
 
     .print-card-header {
-        padding: 12px;
+        padding: 6px 12px;
         color: white;
+        font-weight: 600;
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-align: center;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
@@ -306,52 +351,82 @@
     .print-card-header.evaluate { background: #9b59b6 !important; }
     .print-card-header.create { background: #e91e63 !important; }
 
-    .print-card-level {
-        font-size: 9px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .print-card-title {
-        font-size: 14px;
-        font-weight: 700;
-        margin-top: 2px;
-    }
-
     .print-card-body {
         padding: 12px;
         font-size: 10px;
     }
 
+    .print-card-title-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 2px;
+    }
+
+    .print-card-icon {
+        font-size: 16px;
+    }
+
+    .print-card-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1a1a2e;
+    }
+
+    .print-card-aka {
+        font-size: 8px;
+        font-style: italic;
+        margin-bottom: 6px;
+    }
+
+    .print-card-aka.remember { color: #e74c3c; }
+    .print-card-aka.understand { color: #f39c12; }
+    .print-card-aka.apply { color: #27ae60; }
+    .print-card-aka.analyze { color: #3498db; }
+    .print-card-aka.evaluate { color: #9b59b6; }
+    .print-card-aka.create { color: #e91e63; }
+
     .print-card-definition {
-        color: #666;
-        margin-bottom: 8px;
+        color: #1a1a2e;
+        margin-bottom: 10px;
         line-height: 1.4;
     }
 
     .print-prompts-label {
         font-size: 8px;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        color: #888;
-        margin-bottom: 4px;
+        color: #1a1a2e;
+        margin-bottom: 6px;
+        text-align: center;
+        border-top: 1px solid #e0e0e0;
+        padding-top: 8px;
     }
 
     .print-card-prompts {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
     }
 
-    .print-card-prompts li {
-        padding: 4px 0;
-        border-bottom: 1px solid #eee;
+    .print-prompt {
+        padding: 6px 8px;
+        border-radius: 6px;
+        font-size: 9px;
+        font-style: italic;
         line-height: 1.3;
+        text-align: center;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
 
-    .print-card-prompts li:last-child {
-        border-bottom: none;
-    }
+    .print-prompt.remember { background: rgba(231, 76, 60, 0.15) !important; }
+    .print-prompt.understand { background: rgba(243, 156, 18, 0.15) !important; }
+    .print-prompt.apply { background: rgba(39, 174, 96, 0.15) !important; }
+    .print-prompt.analyze { background: rgba(52, 152, 219, 0.15) !important; }
+    .print-prompt.evaluate { background: rgba(155, 89, 182, 0.15) !important; }
+    .print-prompt.create { background: rgba(233, 30, 99, 0.15) !important; }
 }
 
 /* Loading animation */

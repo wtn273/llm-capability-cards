@@ -149,13 +149,66 @@ a:hover {
 .filter-btn[data-filter="create"]:hover,
 .filter-btn[data-filter="create"].active { background: var(--color-create); border-color: var(--color-create); }
 
-/* Cards grid */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+/* Bloom's Taxonomy Hierarchy Layout */
+.taxonomy-hierarchy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.taxonomy-level {
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-md);
 }
 
+.level-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+}
+
+.level-indicator {
+    width: 140px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.level-indicator.remember { background: var(--color-remember); }
+.level-indicator.understand { background: var(--color-understand); }
+.level-indicator.apply { background: var(--color-apply); }
+.level-indicator.analyze { background: var(--color-analyze); }
+.level-indicator.evaluate { background: var(--color-evaluate); }
+.level-indicator.create { background: var(--color-create); }
+
+.level-description {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+.level-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: flex-start;
+}
+
+/* Cards grid (fallback for filtered view) */
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+/* Card Design - Matching Figma */
 .card {
     background: white;
     border-radius: 12px;
@@ -163,6 +216,8 @@ a:hover {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 280px;
+    border: 1px solid #e0e0e0;
 }
 
 .card:hover {
@@ -174,31 +229,111 @@ a:hover {
     display: none;
 }
 
-.card-image {
-    aspect-ratio: 3/4;
-    background: #f0f0f0;
+/* Card Header Bar */
+.card-header-bar {
+    padding: 6px var(--spacing-md);
+    color: white;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.card-header-bar.remember { background: var(--color-remember); }
+.card-header-bar.understand { background: var(--color-understand); }
+.card-header-bar.apply { background: var(--color-apply); }
+.card-header-bar.analyze { background: var(--color-analyze); }
+.card-header-bar.evaluate { background: var(--color-evaluate); }
+.card-header-bar.create { background: var(--color-create); }
+
+/* Card Content */
+.card-content {
+    padding: var(--spacing-md);
+}
+
+.card-title-row {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: 4px;
 }
 
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.card-icon {
+    font-size: 1.5rem;
 }
 
-.card-image .placeholder {
+.card-name {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--color-text);
+}
+
+.card-aka {
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-aka.remember { color: var(--color-remember); }
+.card-aka.understand { color: var(--color-understand); }
+.card-aka.apply { color: var(--color-apply); }
+.card-aka.analyze { color: var(--color-analyze); }
+.card-aka.evaluate { color: var(--color-evaluate); }
+.card-aka.create { color: var(--color-create); }
+
+.card-definition {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Prompt Examples Section */
+.card-prompts-section {
+    border-top: 1px solid #e0e0e0;
+    padding-top: var(--spacing-md);
+}
+
+.prompts-header {
+    font-size: 0.75rem;
     font-weight: 600;
-    color: var(--color-text-secondary);
-    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.prompt-example {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.4;
+    text-align: center;
+}
+
+.prompt-example:last-child {
+    margin-bottom: 0;
+}
+
+.prompt-example.remember { background: rgba(231, 76, 60, 0.1); }
+.prompt-example.understand { background: rgba(243, 156, 18, 0.1); }
+.prompt-example.apply { background: rgba(39, 174, 96, 0.1); }
+.prompt-example.analyze { background: rgba(52, 152, 219, 0.1); }
+.prompt-example.evaluate { background: rgba(155, 89, 182, 0.1); }
+.prompt-example.create { background: rgba(233, 30, 99, 0.1); }
+
+/* Legacy styles for backward compatibility */
+.card-image {
+    display: none;
 }
 
 .card-label {
-    padding: var(--spacing-sm) var(--spacing-md);
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    display: none;
 }
 
 .level-tag {
@@ -214,11 +349,6 @@ a:hover {
 .level-tag.analyze { color: var(--color-analyze); }
 .level-tag.evaluate { color: var(--color-evaluate); }
 .level-tag.create { color: var(--color-create); }
-
-.card-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-}
 
 /* Method section */
 .method-section {
@@ -411,8 +541,22 @@ a:hover {
         font-size: 2rem;
     }
 
-    .cards-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .level-cards {
+        justify-content: center;
+    }
+
+    .level-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .level-indicator {
+        width: auto;
     }
 
     .filter-buttons {
@@ -421,7 +565,7 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .card {
+        width: 100%;
     }
 }

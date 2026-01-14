@@ -8,11 +8,14 @@ const CAPABILITIES = [
         name: "Identify",
         level: "remember",
         levelName: "Remember",
-        definition: "Locate and retrieve specific information from provided content.",
+        levelOrder: 1,
+        icon: "🔍",
+        aka: "Find, Look Up",
+        definition: "Retrieve the relevant information from a source.",
         defaultPrompts: [
-            "Find all mentions of [topic] in this document",
-            "List the key dates mentioned in this text",
-            "Extract the names of all people referenced"
+            "Find this client's emergency contact information.",
+            "Identify what services this client has received.",
+            "Look through John's notes and find any upcoming appointments."
         ]
     },
 
@@ -22,11 +25,14 @@ const CAPABILITIES = [
         name: "Interpret",
         level: "understand",
         levelName: "Understand",
-        definition: "Clarify the meaning of information by paraphrasing or explaining it differently.",
+        levelOrder: 2,
+        icon: "🔄",
+        aka: "Paraphrase, Clarify, Represent, Translate",
+        definition: "Take information and represent it in another form.",
         defaultPrompts: [
-            "Explain this passage in simpler terms",
-            "What does this technical term mean in context?",
-            "Paraphrase this paragraph for a general audience"
+            "Paraphrase this document as a bulleted list.",
+            "Translate this text from Spanish to English.",
+            "Look at my calendar and rewrite my day as a to-do list."
         ]
     },
     {
@@ -34,11 +40,14 @@ const CAPABILITIES = [
         name: "Exemplify",
         level: "understand",
         levelName: "Understand",
-        definition: "Provide specific examples or instances of a concept or category.",
+        levelOrder: 2,
+        icon: "💡",
+        aka: "Illustrate, Instantiate",
+        definition: "Provide a specific example or instance of a general concept.",
         defaultPrompts: [
-            "Give me three examples of [concept]",
-            "What are some real-world instances of this principle?",
-            "Illustrate this idea with concrete examples"
+            "Give me an example of a strength-based question.",
+            "What would be a good icebreaker for a family session?",
+            "Show me what an empathetic response would look like here."
         ]
     },
     {
@@ -46,11 +55,14 @@ const CAPABILITIES = [
         name: "Classify",
         level: "understand",
         levelName: "Understand",
-        definition: "Determine the category or type that something belongs to.",
+        levelOrder: 2,
+        icon: "📂",
+        aka: "Categorize, Subsume",
+        definition: "Determine that something belongs to a certain category.",
         defaultPrompts: [
-            "Categorize these items by [criteria]",
-            "Which type of [category] does this belong to?",
-            "Sort these examples into appropriate groups"
+            "What type of therapy approach is this?",
+            "Categorize these client concerns by urgency level.",
+            "Which stage of change is this client in?"
         ]
     },
     {
@@ -58,11 +70,14 @@ const CAPABILITIES = [
         name: "Summarize",
         level: "understand",
         levelName: "Understand",
-        definition: "Condense information into a shorter form while preserving key points.",
+        levelOrder: 2,
+        icon: "📝",
+        aka: "Abstract, Generalize",
+        definition: "Abstract a general theme or major points.",
         defaultPrompts: [
-            "Summarize this document in 3 bullet points",
-            "What are the main takeaways from this text?",
-            "Provide a brief overview of the key arguments"
+            "Summarize the key points from today's session.",
+            "What are the main themes across these case notes?",
+            "Give me a brief overview of this client's progress."
         ]
     },
     {
@@ -70,11 +85,14 @@ const CAPABILITIES = [
         name: "Infer",
         level: "understand",
         levelName: "Understand",
-        definition: "Draw conclusions or make predictions based on available information.",
+        levelOrder: 2,
+        icon: "🧩",
+        aka: "Think Step by Step, Commonsense, Logic",
+        definition: "Draw a logical conclusion from presented information.",
         defaultPrompts: [
-            "Based on this data, what conclusions can we draw?",
-            "What might happen next given this information?",
-            "What underlying patterns do you notice?"
+            "Based on these notes, infer the primary unmet need driving Jose's missed appointments.",
+            "Given the pattern of crisis calls, predict the most likely trigger for future escalations.",
+            "Read the supervision summary and conclude whether the safety plan is adequate."
         ]
     },
     {
@@ -82,11 +100,14 @@ const CAPABILITIES = [
         name: "Compare",
         level: "understand",
         levelName: "Understand",
-        definition: "Identify similarities and differences between two or more items.",
+        levelOrder: 2,
+        icon: "⚖️",
+        aka: "Contrast, Map, Match",
+        definition: "Detect correspondences between two ideas, objects, or situations.",
         defaultPrompts: [
-            "Compare and contrast these two approaches",
-            "What are the similarities between X and Y?",
-            "How do these options differ from each other?"
+            "Compare this client's progress to their goals from intake.",
+            "What's the difference between these two intervention approaches?",
+            "How does this family's situation compare to similar cases?"
         ]
     },
     {
@@ -94,11 +115,14 @@ const CAPABILITIES = [
         name: "Explain",
         level: "understand",
         levelName: "Understand",
-        definition: "Describe how something works or why something occurs.",
+        levelOrder: 2,
+        icon: "📖",
+        aka: "Construct a Model",
+        definition: "Construct a cause-and-effect model of a system.",
         defaultPrompts: [
-            "Explain why this process works this way",
-            "What causes this phenomenon?",
-            "Walk me through how this system functions"
+            "Explain why this intervention might be effective for this client.",
+            "What factors are contributing to this family's current crisis?",
+            "Help me understand the relationship between these symptoms."
         ]
     },
 
@@ -108,11 +132,14 @@ const CAPABILITIES = [
         name: "Execute",
         level: "apply",
         levelName: "Apply",
-        definition: "Apply a procedure or method to complete a specific task.",
+        levelOrder: 3,
+        icon: "▶️",
+        aka: "Carry Out",
+        definition: "Apply a procedure to a familiar task.",
         defaultPrompts: [
-            "Apply this formula to calculate [result]",
-            "Use this template to draft [document]",
-            "Follow this process to complete [task]"
+            "Fill out this intake form based on my notes.",
+            "Apply the agency template to write this progress note.",
+            "Use the safety plan format to document this conversation."
         ]
     },
 
@@ -122,11 +149,14 @@ const CAPABILITIES = [
         name: "Differentiate",
         level: "analyze",
         levelName: "Analyze",
-        definition: "Distinguish relevant from irrelevant parts, or important from unimportant aspects.",
+        levelOrder: 4,
+        icon: "🎯",
+        aka: "Discriminate, Distinguish, Focus, Select",
+        definition: "Distinguish relevant from irrelevant, important from unimportant.",
         defaultPrompts: [
-            "What are the most critical points in this document?",
-            "Separate the essential information from the background details",
-            "Which factors are most relevant to this decision?"
+            "What are the most critical issues to address first?",
+            "Separate the urgent concerns from the ongoing ones.",
+            "Which information here is most relevant to the safety assessment?"
         ]
     },
     {
@@ -134,11 +164,14 @@ const CAPABILITIES = [
         name: "Organize",
         level: "analyze",
         levelName: "Analyze",
-        definition: "Determine how elements fit together or function within a structure.",
+        levelOrder: 4,
+        icon: "🗂️",
+        aka: "Find Coherence, Integrate, Outline, Structure",
+        definition: "Determine how elements fit or function within a structure.",
         defaultPrompts: [
-            "Organize this information into a logical structure",
-            "Create an outline showing how these ideas relate",
-            "Map out the relationships between these components"
+            "Organize these case notes chronologically.",
+            "Create an outline of the key themes in this assessment.",
+            "Structure this information into a coherent narrative."
         ]
     },
     {
@@ -146,11 +179,14 @@ const CAPABILITIES = [
         name: "Attribute",
         level: "analyze",
         levelName: "Analyze",
-        definition: "Determine the perspective, bias, values, or intent underlying information.",
+        levelOrder: 4,
+        icon: "🔎",
+        aka: "Deconstruct",
+        definition: "Determine point of view, bias, values, or intent.",
         defaultPrompts: [
-            "What perspective is this written from?",
-            "Identify any potential biases in this text",
-            "What assumptions underlie this argument?"
+            "What perspective is this report written from?",
+            "Identify any assumptions in this assessment.",
+            "What values seem to be guiding this intervention plan?"
         ]
     },
 
@@ -160,11 +196,14 @@ const CAPABILITIES = [
         name: "Check",
         level: "evaluate",
         levelName: "Evaluate",
-        definition: "Detect inconsistencies, errors, or whether something meets specific criteria.",
+        levelOrder: 5,
+        icon: "✓",
+        aka: "Coordinate, Detect, Monitor, Test",
+        definition: "Detect inconsistencies or fallacies within a process or product.",
         defaultPrompts: [
-            "Review this for factual accuracy",
-            "Check if this meets the specified requirements",
-            "Identify any logical inconsistencies"
+            "Check this documentation for any inconsistencies.",
+            "Does this safety plan address all identified risks?",
+            "Review this note for completeness."
         ]
     },
     {
@@ -172,11 +211,14 @@ const CAPABILITIES = [
         name: "Critique",
         level: "evaluate",
         levelName: "Evaluate",
-        definition: "Judge something based on criteria and standards, identifying strengths and weaknesses.",
+        levelOrder: 5,
+        icon: "📊",
+        aka: "Judge",
+        definition: "Detect inconsistencies between a product and external criteria.",
         defaultPrompts: [
-            "Evaluate the strengths and weaknesses of this approach",
-            "What are the pros and cons of this solution?",
-            "Assess how well this meets the stated goals"
+            "Does this intervention align with best practices?",
+            "Evaluate whether this treatment plan meets agency standards.",
+            "Assess the strengths and gaps in this approach."
         ]
     },
 
@@ -186,11 +228,14 @@ const CAPABILITIES = [
         name: "Generate",
         level: "create",
         levelName: "Create",
-        definition: "Brainstorm multiple ideas, possibilities, or hypotheses.",
+        levelOrder: 6,
+        icon: "✨",
+        aka: "Hypothesize",
+        definition: "Come up with alternative hypotheses based on criteria.",
         defaultPrompts: [
-            "Generate 5 possible solutions to this problem",
-            "Brainstorm ideas for [project]",
-            "What are some alternative approaches we could consider?"
+            "Generate some possible explanations for this behavior.",
+            "What are some alternative approaches we could try?",
+            "Brainstorm ideas for engaging this resistant client."
         ]
     },
     {
@@ -198,11 +243,14 @@ const CAPABILITIES = [
         name: "Plan",
         level: "create",
         levelName: "Create",
-        definition: "Devise a strategy, procedure, or method to accomplish an objective.",
+        levelOrder: 6,
+        icon: "📋",
+        aka: "Design",
+        definition: "Devise a procedure for accomplishing some task.",
         defaultPrompts: [
-            "Create a step-by-step plan for [goal]",
-            "Outline a strategy to address this challenge",
-            "Design a process for implementing this solution"
+            "Design a treatment plan for this client.",
+            "Create a step-by-step transition plan.",
+            "Outline an approach for the upcoming family meeting."
         ]
     },
     {
@@ -210,11 +258,14 @@ const CAPABILITIES = [
         name: "Produce",
         level: "create",
         levelName: "Create",
-        definition: "Create a finished product, document, or artifact.",
+        levelOrder: 6,
+        icon: "🎨",
+        aka: "Construct",
+        definition: "Invent a product.",
         defaultPrompts: [
-            "Write a draft of [document type]",
-            "Create a [deliverable] based on these requirements",
-            "Produce a complete [output] incorporating this feedback"
+            "Write a referral letter for this client.",
+            "Create a psychoeducational handout on coping skills.",
+            "Draft a summary report for the treatment team."
         ]
     }
 ];
