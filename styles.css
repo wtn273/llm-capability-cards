@@ -1,21 +1,25 @@
 /* Base styles */
 :root {
-    --color-bg: #f5f3f7;
-    --color-text: #1a1a2e;
-    --color-text-secondary: #4a4a6a;
-    --color-accent: #5c4d7d;
-    --color-link: #5c4d7d;
-    --color-link-hover: #3d3255;
+    --color-bg: #ffffff;
+    --color-bg-subtle: #fafafa;
+    --color-text: #2d2d2d;
+    --color-text-secondary: #666666;
+    --color-border: #e8e8e8;
 
-    /* Bloom's taxonomy level colors */
-    --color-remember: #e74c3c;
-    --color-understand: #f39c12;
-    --color-apply: #27ae60;
-    --color-analyze: #3498db;
-    --color-evaluate: #9b59b6;
-    --color-create: #e91e63;
+    /* Primary accent - using a warm coral/pink from the cards */
+    --color-accent: #e85a71;
+    --color-link: #e85a71;
+    --color-link-hover: #c94a5f;
 
-    --max-width: 900px;
+    /* Bloom's taxonomy level colors - matched to card designs */
+    --color-remember: #e85a71;
+    --color-understand: #f5a623;
+    --color-apply: #4ecdc4;
+    --color-analyze: #45b7d1;
+    --color-evaluate: #a66bbf;
+    --color-create: #e85a71;
+
+    --max-width: 1000px;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
@@ -33,7 +37,7 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.7;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 main {
@@ -46,15 +50,17 @@ main {
 h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--color-accent);
+    color: var(--color-text);
     margin-bottom: var(--spacing-sm);
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--color-text);
     margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--color-border);
 }
 
 h3 {
@@ -71,23 +77,27 @@ p {
 a {
     color: var(--color-link);
     text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    transition: color 0.2s ease;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
 }
 
 a:hover {
     color: var(--color-link-hover);
+    border-bottom-color: currentColor;
 }
 
 /* Hero section */
 .hero {
     margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-text-secondary);
     margin-bottom: 0;
+    font-weight: 400;
 }
 
 /* Intro section */
@@ -118,36 +128,40 @@ a:hover {
 }
 
 .filter-btn {
-    padding: 0.5rem 1rem;
-    border: 2px solid var(--color-accent);
-    background: transparent;
-    color: var(--color-accent);
-    border-radius: 25px;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--color-border);
+    background: white;
+    color: var(--color-text);
+    border-radius: 20px;
     font-family: inherit;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.filter-btn:hover,
+.filter-btn:hover {
+    border-color: var(--color-text-secondary);
+}
+
 .filter-btn.active {
-    background: var(--color-accent);
+    background: var(--color-text);
     color: white;
+    border-color: var(--color-text);
 }
 
 .filter-btn[data-filter="remember"]:hover,
-.filter-btn[data-filter="remember"].active { background: var(--color-remember); border-color: var(--color-remember); }
+.filter-btn[data-filter="remember"].active { background: var(--color-remember); border-color: var(--color-remember); color: white; }
 .filter-btn[data-filter="understand"]:hover,
-.filter-btn[data-filter="understand"].active { background: var(--color-understand); border-color: var(--color-understand); }
+.filter-btn[data-filter="understand"].active { background: var(--color-understand); border-color: var(--color-understand); color: white; }
 .filter-btn[data-filter="apply"]:hover,
-.filter-btn[data-filter="apply"].active { background: var(--color-apply); border-color: var(--color-apply); }
+.filter-btn[data-filter="apply"].active { background: var(--color-apply); border-color: var(--color-apply); color: white; }
 .filter-btn[data-filter="analyze"]:hover,
-.filter-btn[data-filter="analyze"].active { background: var(--color-analyze); border-color: var(--color-analyze); }
+.filter-btn[data-filter="analyze"].active { background: var(--color-analyze); border-color: var(--color-analyze); color: white; }
 .filter-btn[data-filter="evaluate"]:hover,
-.filter-btn[data-filter="evaluate"].active { background: var(--color-evaluate); border-color: var(--color-evaluate); }
+.filter-btn[data-filter="evaluate"].active { background: var(--color-evaluate); border-color: var(--color-evaluate); color: white; }
 .filter-btn[data-filter="create"]:hover,
-.filter-btn[data-filter="create"].active { background: var(--color-create); border-color: var(--color-create); }
+.filter-btn[data-filter="create"].active { background: var(--color-create); border-color: var(--color-create); color: white; }
 
 /* Bloom's Taxonomy Hierarchy Layout */
 .taxonomy-hierarchy {
@@ -171,14 +185,16 @@ a:hover {
 }
 
 .level-indicator {
-    width: 140px;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: 8px;
+    width: 120px;
+    padding: 0.4rem var(--spacing-md);
+    border-radius: 20px;
     color: white;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: center;
     flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .level-indicator.remember { background: var(--color-remember); }
@@ -213,16 +229,16 @@ a:hover {
     background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     width: 280px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--color-border);
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .card.hidden {
@@ -363,23 +379,23 @@ a:hover {
 }
 
 .method-step {
-    background: white;
+    background: var(--color-bg-subtle);
     padding: var(--spacing-lg);
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--color-border);
 }
 
 .step-number {
-    width: 40px;
-    height: 40px;
-    background: var(--color-accent);
+    width: 36px;
+    height: 36px;
+    background: var(--color-text);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
-    font-size: 1.1rem;
+    font-weight: 600;
+    font-size: 1rem;
     margin-bottom: var(--spacing-md);
 }
 
@@ -395,8 +411,8 @@ a:hover {
 
 /* Generator CTA */
 .generator-cta {
-    background: linear-gradient(135deg, var(--color-accent), #7c6d9d);
-    color: white;
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
     padding: var(--spacing-xl);
     border-radius: 12px;
     text-align: center;
@@ -404,12 +420,13 @@ a:hover {
 }
 
 .generator-cta h2 {
-    color: white;
+    color: var(--color-text);
+    border-bottom: none;
     margin-bottom: var(--spacing-sm);
 }
 
 .generator-cta p {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-text-secondary);
     margin-bottom: var(--spacing-lg);
 }
 
@@ -417,19 +434,19 @@ a:hover {
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-sm);
-    background: white;
-    color: var(--color-accent);
+    background: var(--color-text);
+    color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-weight: 600;
     border: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    color: var(--color-link-hover);
+    background: var(--color-accent);
+    color: white;
+    border-bottom-color: transparent;
 }
 
 /* Downloads section */
@@ -452,6 +469,11 @@ a:hover {
     gap: var(--spacing-sm);
     font-weight: 500;
     padding: var(--spacing-sm) 0;
+    color: var(--color-text);
+}
+
+.download-links a:hover {
+    color: var(--color-accent);
 }
 
 .download-links .arrow {
@@ -465,16 +487,17 @@ a:hover {
 /* Citation section */
 .citation-section {
     padding-top: var(--spacing-lg);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid var(--color-border);
 }
 
 .citation {
     font-size: 0.9rem;
     color: var(--color-text-secondary);
-    background: white;
+    background: var(--color-bg-subtle);
     padding: var(--spacing-md);
     border-radius: 8px;
     margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-border);
 }
 
 .license {
@@ -490,7 +513,7 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1000;
     align-items: center;
     justify-content: center;
@@ -509,7 +532,7 @@ a:hover {
 .modal-content img {
     max-width: 100%;
     max-height: 85vh;
-    border-radius: 8px;
+    border-radius: 12px;
 }
 
 .close-modal {
