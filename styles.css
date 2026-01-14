@@ -6,18 +6,18 @@
     --color-text-secondary: #666666;
     --color-border: #e8e8e8;
 
-    /* Primary accent - using a warm coral/pink from the cards */
-    --color-accent: #e85a71;
-    --color-link: #e85a71;
-    --color-link-hover: #c94a5f;
+    /* Primary accent */
+    --color-accent: #d64045;
+    --color-link: #d64045;
+    --color-link-hover: #b8363a;
 
-    /* Bloom's taxonomy level colors - matched to card designs */
-    --color-remember: #e85a71;
+    /* Bloom's taxonomy level colors - distinct and clear */
+    --color-remember: #d64045;
     --color-understand: #f5a623;
-    --color-apply: #4ecdc4;
-    --color-analyze: #45b7d1;
-    --color-evaluate: #a66bbf;
-    --color-create: #e85a71;
+    --color-apply: #2eb872;
+    --color-analyze: #3b9fc9;
+    --color-evaluate: #8e6bbf;
+    --color-create: #c44eb9;
 
     --max-width: 1000px;
     --spacing-sm: 0.5rem;
@@ -105,8 +105,66 @@ a:hover {
     margin-bottom: var(--spacing-xl);
 }
 
-.intro p {
-    font-size: 1.15rem;
+.intro-lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+}
+
+.intro-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--color-text);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--color-accent);
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-text);
+}
+
+.intro-context {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.intro-context a {
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-text-secondary);
+}
+
+.intro-context a:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
 }
 
 /* Cards section */
@@ -167,7 +225,7 @@ a:hover {
 .taxonomy-hierarchy {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
 }
 
@@ -175,6 +233,13 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.taxonomy-level:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 .level-header {
@@ -182,15 +247,15 @@ a:hover {
     align-items: center;
     gap: var(--spacing-md);
     padding: var(--spacing-sm) 0;
+    margin-bottom: var(--spacing-sm);
 }
 
 .level-indicator {
-    width: 120px;
-    padding: 0.4rem var(--spacing-md);
-    border-radius: 20px;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
     color: white;
-    font-weight: 600;
-    font-size: 0.8rem;
+    font-weight: 700;
+    font-size: 0.9rem;
     text-align: center;
     flex-shrink: 0;
     text-transform: uppercase;
@@ -205,15 +270,14 @@ a:hover {
 .level-indicator.create { background: var(--color-create); }
 
 .level-description {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--color-text-secondary);
-    font-style: italic;
 }
 
 .level-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
     justify-content: flex-start;
 }
 
