@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Card Generator | LLM Capability Cards</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="generator.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <header class="hero">
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
+            <h1>Custom Card Generator</h1>
+            <p class="subtitle">Generate context-specific prompt examples for your domain</p>
+        </header>
+
+        <!-- Step 1: Setup -->
+        <section class="setup-section" id="setup-section">
+            <h2>1. Configure Your Settings</h2>
+
+            <div class="form-group">
+                <label for="domain-input">Your Domain/Context</label>
+                <input type="text" id="domain-input" placeholder="e.g., Social Work, Healthcare, K-12 Education, Legal Services">
+                <p class="help-text">Describe your professional context so we can generate relevant prompt examples.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="api-provider">API Provider</label>
+                <select id="api-provider">
+                    <option value="openai">OpenAI (GPT-4)</option>
+                    <option value="anthropic">Anthropic (Claude)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="api-key">API Key</label>
+                <input type="password" id="api-key" placeholder="Enter your API key">
+                <p class="help-text">Your API key is stored locally and never sent to our servers. <a href="#" id="save-key-link">Save for future sessions</a></p>
+            </div>
+
+            <button class="primary-btn" id="generate-btn">Generate Custom Cards</button>
+            <div id="generation-status" class="status-message"></div>
+        </section>
+
+        <!-- Step 2: Preview & Edit -->
+        <section class="preview-section" id="preview-section" style="display: none;">
+            <h2>2. Preview & Edit Your Cards</h2>
+            <p class="section-intro">Review the generated prompt examples. Click any card to edit its prompts.</p>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="remember">Remember</button>
+                <button class="filter-btn" data-filter="understand">Understand</button>
+                <button class="filter-btn" data-filter="apply">Apply</button>
+                <button class="filter-btn" data-filter="analyze">Analyze</button>
+                <button class="filter-btn" data-filter="evaluate">Evaluate</button>
+                <button class="filter-btn" data-filter="create">Create</button>
+            </div>
+
+            <div class="editable-cards-grid" id="cards-container">
+                <!-- Cards will be generated here -->
+            </div>
+
+            <div class="action-buttons">
+                <button class="secondary-btn" id="regenerate-btn">Regenerate All</button>
+                <button class="primary-btn" id="print-btn">Print Cards</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content edit-modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-card-title">Edit Card</h3>
+            <div class="form-group">
+                <label>Example Prompt 1</label>
+                <textarea id="prompt-1" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Example Prompt 2</label>
+                <textarea id="prompt-2" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Example Prompt 3</label>
+                <textarea id="prompt-3" rows="2"></textarea>
+            </div>
+            <div class="modal-actions">
+                <button class="secondary-btn" id="regenerate-card-btn">Regenerate</button>
+                <button class="primary-btn" id="save-card-btn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print Layout (hidden, used for printing) -->
+    <div id="print-layout" class="print-layout">
+        <!-- Print-ready cards will be generated here -->
+    </div>
+
+    <script src="capabilities-data.js"></script>
+    <script src="generator.js"></script>
+</body>
+</html>

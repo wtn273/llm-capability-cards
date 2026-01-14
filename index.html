@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Capability Cards</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <header class="hero">
+            <h1>LLM Capability Cards</h1>
+            <p class="subtitle">A cognitive framework for reasoning about LLM task delegation</p>
+        </header>
+
+        <section class="intro">
+            <p>
+                We are researchers at the <a href="https://www.ischool.utexas.edu/" target="_blank">School of Information at UT Austin</a>.
+                We created a design resource to help practitioners reason about <em>what</em> to delegate to LLMs
+                and <em>how</em> to approach different types of cognitive tasks.
+            </p>
+            <p>
+                Existing AI capability frameworks describe what systems <em>do</em> but don't help practitioners
+                reason about task complexity. Our Bloom-aligned taxonomy organizes 17 LLM capabilities by
+                cognitive level—from simple retrieval to complex creation—giving practitioners language to
+                articulate which tasks to delegate versus preserve.
+            </p>
+        </section>
+
+        <section class="cards-section">
+            <h2>The Capability Cards</h2>
+            <p class="section-intro">
+                Our 17 capabilities are organized by Bloom's revised taxonomy of cognitive processes.
+                Click any card to view details, or filter by cognitive level.
+            </p>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="remember">Remember</button>
+                <button class="filter-btn" data-filter="understand">Understand</button>
+                <button class="filter-btn" data-filter="apply">Apply</button>
+                <button class="filter-btn" data-filter="analyze">Analyze</button>
+                <button class="filter-btn" data-filter="evaluate">Evaluate</button>
+                <button class="filter-btn" data-filter="create">Create</button>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Remember -->
+                <div class="card" data-level="remember" data-capability="identify">
+                    <div class="card-image">
+                        <img src="images/cards/identify.png" alt="Identify capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Identify</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag remember">Remember</span>
+                        <span class="card-name">Identify</span>
+                    </div>
+                </div>
+
+                <!-- Understand -->
+                <div class="card" data-level="understand" data-capability="interpret">
+                    <div class="card-image">
+                        <img src="images/cards/interpret.png" alt="Interpret capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Interpret</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag understand">Understand</span>
+                        <span class="card-name">Interpret</span>
+                    </div>
+                </div>
+
+                <div class="card" data-level="understand" data-capability="exemplify">
+                    <div class="card-image">
+                        <img src="images/cards/exemplify.png" alt="Exemplify capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Exemplify</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag understand">Understand</span>
+                        <span class="card-name">Exemplify</span>
+                    </div>
+                </div>
+
+                <div class="card" data-level="understand" data-capability="classify">
+                    <div class="card-image">
+                        <img src="images/cards/classify.png" alt="Classify capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Classify</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag understand">Understand</span>
+                        <span class="card-name">Classify</span>
+                    </div>
+                </div>
+
+                <div class="card" data-level="understand" data-capability="summarize">
+                    <div class="card-image">
+                        <img src="images/cards/summarize.png" alt="Summarize capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Summarize</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag understand">Understand</span>
+                        <span class="card-name">Summarize</span>
+                    </div>
+                </div>
+
+                <div class="card" data-level="understand" data-capability="infer">
+                    <div class="card-image">
+                        <img src="images/cards/infer.png" alt="Infer capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Infer</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag understand">Understand</span>
+                        <span class="card-name">Infer</span>
+                    </div>
+                </div>
+
+                <div class="card" data-level="understand" data-capability="compare">
+                    <div class="card-image">
+                        <img src="images/cards/compare.png" alt="Compare capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Compare</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag understand">Understand</span>
+                        <span class="card-name">Compare</span>
+                    </div>
+                </div>
+
+                <div class="card" data-level="understand" data-capability="explain">
+                    <div class="card-image">
+                        <img src="images/cards/explain.png" alt="Explain capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Explain</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag understand">Understand</span>
+                        <span class="card-name">Explain</span>
+                    </div>
+                </div>
+
+                <!-- Apply -->
+                <div class="card" data-level="apply" data-capability="execute">
+                    <div class="card-image">
+                        <img src="images/cards/execute.png" alt="Execute capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Execute</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag apply">Apply</span>
+                        <span class="card-name">Execute</span>
+                    </div>
+                </div>
+
+                <!-- Analyze -->
+                <div class="card" data-level="analyze" data-capability="differentiate">
+                    <div class="card-image">
+                        <img src="images/cards/differentiate.png" alt="Differentiate capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Differentiate</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag analyze">Analyze</span>
+                        <span class="card-name">Differentiate</span>
+                    </div>
+                </div>
+
+                <div class="card" data-level="analyze" data-capability="organize">
+                    <div class="card-image">
+                        <img src="images/cards/organize.png" alt="Organize capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Organize</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag analyze">Analyze</span>
+                        <span class="card-name">Organize</span>
+                    </div>
+                </div>
+
+                <div class="card" data-level="analyze" data-capability="attribute">
+                    <div class="card-image">
+                        <img src="images/cards/attribute.png" alt="Attribute capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Attribute</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag analyze">Analyze</span>
+                        <span class="card-name">Attribute</span>
+                    </div>
+                </div>
+
+                <!-- Evaluate -->
+                <div class="card" data-level="evaluate" data-capability="check">
+                    <div class="card-image">
+                        <img src="images/cards/check.png" alt="Check capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Check</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag evaluate">Evaluate</span>
+                        <span class="card-name">Check</span>
+                    </div>
+                </div>
+
+                <div class="card" data-level="evaluate" data-capability="critique">
+                    <div class="card-image">
+                        <img src="images/cards/critique.png" alt="Critique capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Critique</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag evaluate">Evaluate</span>
+                        <span class="card-name">Critique</span>
+                    </div>
+                </div>
+
+                <!-- Create -->
+                <div class="card" data-level="create" data-capability="generate">
+                    <div class="card-image">
+                        <img src="images/cards/generate.png" alt="Generate capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Generate</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag create">Create</span>
+                        <span class="card-name">Generate</span>
+                    </div>
+                </div>
+
+                <div class="card" data-level="create" data-capability="plan">
+                    <div class="card-image">
+                        <img src="images/cards/plan.png" alt="Plan capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Plan</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag create">Create</span>
+                        <span class="card-name">Plan</span>
+                    </div>
+                </div>
+
+                <div class="card" data-level="create" data-capability="produce">
+                    <div class="card-image">
+                        <img src="images/cards/produce.png" alt="Produce capability card" onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>Produce</div>'">
+                    </div>
+                    <div class="card-label">
+                        <span class="level-tag create">Create</span>
+                        <span class="card-name">Produce</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="method-section">
+            <h2>The Method</h2>
+            <p>
+                Our two-phase co-design method helps practitioners generate grounded LLM application ideas:
+            </p>
+            <div class="method-steps">
+                <div class="method-step">
+                    <div class="step-number">1</div>
+                    <h3>Workflow Mapping</h3>
+                    <p>Practitioners map their existing workflows, identifying pain points and cognitive tasks they perform.</p>
+                </div>
+                <div class="method-step">
+                    <div class="step-number">2</div>
+                    <h3>Capability Card Ideation</h3>
+                    <p>Using the capability cards, practitioners brainstorm how LLMs could support specific workflow tasks, then test ideas through prompt-based prototyping.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="generator-cta">
+            <h2>Create Custom Cards for Your Domain</h2>
+            <p>Generate context-specific prompt examples tailored to your professional field using AI.</p>
+            <a href="generator.html" class="cta-button">Open Card Generator <span class="arrow">&rarr;</span></a>
+        </section>
+
+        <section class="downloads-section">
+            <h2>Resources</h2>
+            <ul class="download-links">
+                <li><a href="generator.html">Create Custom Cards for Your Domain <span class="arrow">&rarr;</span></a></li>
+                <li><a href="downloads/workshop-kit.pdf">Download the Workshop Kit <span class="arrow">&rarr;</span></a></li>
+                <li><a href="downloads/capability-cards.pdf">Download the Capability Cards (PDF) <span class="arrow">&rarr;</span></a></li>
+                <li><a href="downloads/capability-cards-print.pdf">Download Print-Ready Cards <span class="arrow">&rarr;</span></a></li>
+                <li><a href="#">Read the Paper <span class="arrow">&rarr;</span></a></li>
+                <li><a href="mailto:contact@example.com">Contact via email <span class="arrow">&rarr;</span></a></li>
+            </ul>
+        </section>
+
+        <section class="citation-section">
+            <h3>Citation</h3>
+            <p class="citation">
+                [Authors]. LLM Capability Cards: A Bloom-Aligned Framework for Practitioner-Led AI Co-Design.
+                In Proceedings of the 2025 ACM Designing Interactive Systems Conference (DIS '25).
+                ACM, New York, NY, USA.
+            </p>
+
+            <p class="license">
+                This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-Share Alike 4.0 International License</a>.
+            </p>
+        </section>
+    </main>
+
+    <!-- Modal for enlarged card view -->
+    <div id="card-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modal-image" src="" alt="Capability card">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
